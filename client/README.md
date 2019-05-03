@@ -1,0 +1,1 @@
+This line in package.json is for making a static path for fetch requests, instead of writing this + /api/items/ every time:   "proxy": "http://localhost:5000"
