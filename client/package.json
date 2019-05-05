@@ -1,5 +1,5 @@
 {
-  "name": "MERN Shopping List",
+  "name": "mern_shopping_client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
