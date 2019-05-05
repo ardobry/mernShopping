@@ -1,26 +1,28 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const items = require('./routes/api/items');
 const path = require('path');
-
+const config = require('config');
 
 const app = express();
 
 //Bodyparser Middleware
-app.use(bodyParser.json());
+app.use(express.json());
 
 //DB Config
-const db = require('./config/keys').mongoURI;
+const db = config.get('mongoURI');
 
 //Connect to Mongo
-mongoose.connect(db)
+mongoose.connect(db, {
+    useNewUrlParser: true,
+    useCreateIndex: true
+}) //Adding the new url parser
     .then(() => console.log('MongoDB Connected...'))
     .catch(err => console.log('ERRRRRRRR: ', err));
 
 //Use Routes
 //I want anything that goes to /api/items/* to go to that file
-app.use('/api/items', items);
+app.use('/api/items', require('./routes/api/items'));
+app.use('/api/users', require('./routes/api/users'));
 
 
 //Serve static assets if in production
