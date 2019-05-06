@@ -30,7 +30,7 @@ export default function(state = initialState, action) {
         isLoading: false,
         user: action.payload
       };
-    case LOGIN_FAIL:
+    case LOGIN_SUCCESS:
     case REGISTER_SUCCESS:
       return {
         ...state,

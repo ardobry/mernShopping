@@ -12,7 +12,7 @@ class Logout extends Component {
   render() {
     return (
       <React.Fragment>
-        <NavLink onclick={this.props.logout} href="#">
+        <NavLink onClick={this.props.logout} href="#">
           Logout
         </NavLink>
       </React.Fragment>
